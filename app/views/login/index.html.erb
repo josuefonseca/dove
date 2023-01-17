@@ -1,0 +1,29 @@
+<% content_for :head do %>
+    <%= stylesheet_link_tag "login/index", "data-turbo-track": "reload" %>
+<% end %>
+
+<main class="form-signin w-100 m-auto">
+  <form>
+    <img class="logo" src="data:image/png;base64,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">
+    
+    
+    <h1 class="h3 mb-3 fw-normal">Entrar</h1>
+
+    <div class="form-floating">
+      <input type="text" class="form-control" id="txtLogin" placeholder="">
+      <label for="txtLogin">Login</label>
+    </div>
+    <div class="form-floating">
+      <input type="password" class="form-control" id="txtSenha" placeholder="">
+      <label for="txtSenha">Senha</label>
+    </div>
+
+    <div class="checkbox mb-3">
+      <label>
+        <input type="checkbox" value="remember-me"> Lembrar-me
+      </label>
+    </div>
+    <button class="w-100 btn btn-lg btn-primary" type="submit">Entrar</button>
+    <p class="mt-5 mb-3 text-muted">2023</p>
+  </form>
+</main>
