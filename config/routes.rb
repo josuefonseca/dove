@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   get 'login', to: 'login#index'
-  post 'login', to: 'login#go'
+  post 'login', to: 'login#logon'
   get 'logout', to: 'login#logout'
 
   get 'home', to: 'home#index'

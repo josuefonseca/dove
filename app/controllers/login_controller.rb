@@ -6,7 +6,7 @@ class LoginController < ApplicationController
     @user = User.new
   end
 
-  def go
+  def logon
     usr = User.find_by(username: params[:user][:username])
     if usr.present? && usr.authenticate(params[:user][:password])
       session[:user_id] = usr[:id]
