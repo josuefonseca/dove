@@ -1,4 +1,6 @@
 class LoginController < ApplicationController
+  layout "login"
+  
   def index
     if session[:user_id]
       redirect_to root_path

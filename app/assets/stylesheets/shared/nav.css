@@ -1,0 +1,9 @@
+.nav-pills .nav-link{
+    color: var(--bs-nav-pills-link-active-bg);
+    margin: 0 0 5px 5px;
+    border: 1px solid white;
+}
+.nav-link:hover {
+    color: var(--bs-nav-pills-link-active-bg);
+    border: 1px solid var(--bs-nav-pills-link-active-bg);
+}

@@ -3,4 +3,7 @@
 //= link_tree ../../../vendor/javascript .js
 //= link_tree ../builds
 
-//= link login/index.css
+
+//= link_tree ../stylesheets
+//= link_tree ../stylesheets/login
+//= link_tree ../stylesheets/shared
