@@ -12,6 +12,31 @@
         <%= link_to "Início", home_path, class: "nav-link" %>
     <% end %>
 
+
+    <% if current_page?(lancamentos_path) || current_page?(lancamentos_path)%>
+        <%= link_to "Lançamentos", lancamentos_path, class: "nav-link active" %>
+    <% else %>
+        <%= link_to "Lançamentos", lancamentos_path, class: "nav-link" %>
+    <% end %>
+    
+    <% if current_page?(categoria_path) || current_page?(categoria_path)%>
+        <%= link_to "Categorias", categoria_path, class: "nav-link active" %>
+    <% else %>
+        <%= link_to "Categorias", categoria_path, class: "nav-link" %>
+    <% end %>
+
+    <% if current_page?(carteiras_path) || current_page?(carteiras_path)%>
+        <%= link_to "Carteiras", carteiras_path, class: "nav-link active" %>
+    <% else %>
+        <%= link_to "Carteiras", carteiras_path, class: "nav-link" %>
+    <% end %>
+
+    <% if current_page?(linha_creditos_path) || current_page?(linha_creditos_path)%>
+        <%= link_to "Linhas de Crédito", linha_creditos_path, class: "nav-link active" %>
+    <% else %>
+        <%= link_to "Linhas de Crédito", linha_creditos_path, class: "nav-link" %>
+    <% end %>
+
     <%= form_with url: logout_path, method: "delete" do |form| %>
         <%= content_tag "button", type: "submit",  class: "w-100 btn btn-outline-danger", style:"margin: 0 5px 0 5px;" do %>
             Sair <i class='bi bi-box-arrow-right'></i>

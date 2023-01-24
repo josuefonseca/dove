@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Lancamentos</h1>
+
+<div id="lancamentos">
+  <% @lancamentos.each do |lancamento| %>
+    <%= render lancamento %>
+    <p>
+      <%= link_to "Show this lancamento", lancamento %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New lancamento", new_lancamento_path %>

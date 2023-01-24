@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @carteira %>
+
+<div>
+  <%= link_to "Edit this carteira", edit_carteira_path(@carteira) %> |
+  <%= link_to "Back to carteiras", carteiras_path %>
+
+  <%= button_to "Destroy this carteira", @carteira, method: :delete %>
+</div>

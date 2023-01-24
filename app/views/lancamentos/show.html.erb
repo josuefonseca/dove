@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @lancamento %>
+
+<div>
+  <%= link_to "Edit this lancamento", edit_lancamento_path(@lancamento) %> |
+  <%= link_to "Back to lancamentos", lancamentos_path %>
+
+  <%= button_to "Destroy this lancamento", @lancamento, method: :delete %>
+</div>

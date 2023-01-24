@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  resources :lancamentos
+  resources :linha_creditos
+  resources :carteiras
+  resources :categoria
+  
   get 'login', to: 'login#index'
   post 'login', to: 'login#logon'
   delete 'logout', to: 'login#logout'

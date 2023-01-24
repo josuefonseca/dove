@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @linha_credito %>
+
+<div>
+  <%= link_to "Edit this linha credito", edit_linha_credito_path(@linha_credito) %> |
+  <%= link_to "Back to linha creditos", linha_creditos_path %>
+
+  <%= button_to "Destroy this linha credito", @linha_credito, method: :delete %>
+</div>

@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Carteiras</h1>
+
+<div id="carteiras">
+  <% @carteiras.each do |carteira| %>
+    <%= render carteira %>
+    <p>
+      <%= link_to "Show this carteira", carteira %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New carteira", new_carteira_path %>

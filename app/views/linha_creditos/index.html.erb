@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Linha creditos</h1>
+
+<div id="linha_creditos">
+  <% @linha_creditos.each do |linha_credito| %>
+    <%= render linha_credito %>
+    <p>
+      <%= link_to "Show this linha credito", linha_credito %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New linha credito", new_linha_credito_path %>
