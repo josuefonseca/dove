@@ -3,7 +3,7 @@ class CategoriaController < ApplicationController
 
   # GET /categoria or /categoria.json
   def index
-    @categoria = Categorium.all
+    @categoria = Categorium.all.order(:nome)
   end
 
   # GET /categoria/1 or /categoria/1.json
@@ -25,7 +25,8 @@ class CategoriaController < ApplicationController
 
     respond_to do |format|
       if @categorium.save
-        format.html { redirect_to categorium_url(@categorium), notice: "Categorium was successfully created." }
+        flash[:success] = "Categoria criada com sucesso!"
+        format.html { redirect_to categoria_path}
         format.json { render :show, status: :created, location: @categorium }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,22 +39,13 @@ class CategoriaController < ApplicationController
   def update
     respond_to do |format|
       if @categorium.update(categorium_params)
-        format.html { redirect_to categorium_url(@categorium), notice: "Categorium was successfully updated." }
+        flash[:success] = "Categoria atualizada com sucesso!"
+        format.html { redirect_to categoria_path }
         format.json { render :show, status: :ok, location: @categorium }
       else
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @categorium.errors, status: :unprocessable_entity }
       end
-    end
-  end
-
-  # DELETE /categoria/1 or /categoria/1.json
-  def destroy
-    @categorium.destroy
-
-    respond_to do |format|
-      format.html { redirect_to categoria_url, notice: "Categorium was successfully destroyed." }
-      format.json { head :no_content }
     end
   end
 
@@ -65,6 +57,6 @@ class CategoriaController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def categorium_params
-      params.fetch(:categorium, {})
+      params.fetch(:categorium, {}).permit(:id, :nome, :cor)
     end
 end

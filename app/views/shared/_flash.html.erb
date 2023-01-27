@@ -1,17 +1,26 @@
 <% if flash[:info] %>
-    <div class="d-flex alert alert-info" role="alert">
+    <div class="d-flex alert alert-info alert-dismissible" role="alert">
+        <i class="bi bi-info-circle-fill flex-shrink-0 me-2" role="img" aria-label="Informação:"></i>
         <%= flash[:info] %>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Fechar"></button>
+        </button>
     </div>
 <% end %>
 
 <% if flash[:success] %>
-    <div class="d-flex alert alert-success" role="alert">
+    <div class="alert alert-success alert-dismissible" role="alert">
+        <i class="bi bi-check-circle-fill flex-shrink-0 me-2" role="img" aria-label="Successo:"></i>
         <%= flash[:success] %>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Fechar"></button>
+        </button>
     </div>
 <% end %>
 
 <% if flash[:error] %>
-    <div class="d-flex alert alert-danger" role="alert">
+    <div class="alert alert-danger alert-dismissible" role="alert">
+        <i class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2" role="img" aria-label="Erro:"></i>
         <%= flash[:error] %>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Fechar"></button>
+        </button>
     </div>
 <% end %>

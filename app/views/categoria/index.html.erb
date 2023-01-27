@@ -1,14 +1,24 @@
-<p style="color: green"><%= notice %></p>
+<%content_for :header do %>
+  <h1>Categorias</h1>
+<% end %>
 
-<h1>Categoria</h1>
-
-<div id="categoria">
-  <% @categoria.each do |categorium| %>
-    <%= render categorium %>
-    <p>
-      <%= link_to "Show this categorium", categorium %>
-    </p>
-  <% end %>
+<div class="m-2">
+  <%= link_to "Nova categoria", new_categorium_path, class:"btn btn-outline-primary" %>
 </div>
 
-<%= link_to "New categorium", new_categorium_path %>
+<div id="categoria">
+  <table class="table table-bordered table-striped table-hover w-50">
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>Cor</th>
+        <th>Editar</th>
+      </tr>
+    </thead>
+    <% @categoria.each do |categorium| %>
+      <%= render categorium %>
+      
+    <% end %>
+  </table>
+</div>
+

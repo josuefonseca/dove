@@ -1,7 +1,24 @@
 <%= form_with(model: categorium) do |form| %>
+  <div class="d-grid gap-3 w-50">
+  <div class="form-floating">
+    <%= form.text_field :nome, required: "required", placeholder: "", class: "form-control", autocomplete:"off" %>
+    <%= form.label :nome, "Nome" %>
+  </div>
+
+  <% if categorium.id%>
+  <div class="form-floating">
+    <input type="color" class="form-control" disabled="disabled" value="<%= categorium.cor %>" required="required" placeholder=""  />
+    <%= form.label "Cor atual" %>
+  </div>
+  <% end %>
+  <div class="form-floating">
+    <input name="categorium[cor]" id="categorium_cor" type="color" class="form-control" value="<%= categorium.cor %>" required="required" placeholder=""  />
+    <%= form.label :cor, (categorium.id ? "Nova cor" : "Cor") %>
+  </div>
+
   <% if categorium.errors.any? %>
     <div style="color: red">
-      <h2><%= pluralize(categorium.errors.count, "error") %> prohibited this categorium from being saved:</h2>
+      <h2><%= pluralize(categorium.errors.count, "error") %> Erro(s) ao salvar a categoria:</h2>
 
       <ul>
         <% categorium.errors.each do |error| %>
@@ -10,8 +27,9 @@
       </ul>
     </div>
   <% end %>
-
   <div>
-    <%= form.submit %>
+  <div>
+    <%= form.submit "Gravar", class: "btn btn-primary" %>
+    <%= link_to "Voltar", categoria_path, class:"btn btn-outline-secondary" %>
   </div>
 <% end %>
