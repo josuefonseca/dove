@@ -5,5 +5,5 @@
 
 
 //= link_tree ../stylesheets
-//= link_tree ../stylesheets/login
-//= link_tree ../stylesheets/shared
+//= link_tree ../stylesheets/login .css
+//= link_tree ../stylesheets/shared 

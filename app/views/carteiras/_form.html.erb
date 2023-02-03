@@ -1,7 +1,24 @@
 <%= form_with(model: carteira) do |form| %>
+  <div class="d-grid gap-3 w-50">
+  <div class="form-floating">
+    <%= form.text_field :nome, required: "required", placeholder: "", class: "form-control", autocomplete:"off" %>
+    <%= form.label :nome, "Nome" %>
+  </div>
+
+  <% if carteira.id%>
+  <div class="form-floating">
+    <input type="color" class="form-control" disabled="disabled" value="<%= carteira.cor %>" required="required" placeholder=""  />
+    <%= form.label "Cor atual" %>
+  </div>
+  <% end %>
+  <div class="form-floating">
+    <input name="carteira[cor]" id="carteira_cor" type="color" class="form-control" value="<%= carteira.cor %>" required="required" placeholder=""  />
+    <%= form.label :cor, (carteira.id ? "Nova cor" : "Cor") %>
+  </div>
+
   <% if carteira.errors.any? %>
     <div style="color: red">
-      <h2><%= pluralize(carteira.errors.count, "error") %> prohibited this carteira from being saved:</h2>
+      <h2><%= pluralize(carteira.errors.count, "error") %> Erro(s) ao salvar a carteira:</h2>
 
       <ul>
         <% carteira.errors.each do |error| %>
@@ -10,8 +27,9 @@
       </ul>
     </div>
   <% end %>
-
   <div>
-    <%= form.submit %>
+  <div>
+    <%= form.submit "Gravar", class: "btn btn-primary" %>
+    <%= link_to "Voltar", carteiras_path, class:"btn btn-outline-secondary" %>
   </div>
 <% end %>

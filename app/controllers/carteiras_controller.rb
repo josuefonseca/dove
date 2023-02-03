@@ -3,7 +3,7 @@ class CarteirasController < ApplicationController
 
   # GET /carteiras or /carteiras.json
   def index
-    @carteiras = Carteira.all
+    @carteiras = Carteira.all.order(:nome)
   end
 
   # GET /carteiras/1 or /carteiras/1.json
@@ -22,10 +22,11 @@ class CarteirasController < ApplicationController
   # POST /carteiras or /carteiras.json
   def create
     @carteira = Carteira.new(carteira_params)
-
+    @carteira.saldo = 0
     respond_to do |format|
       if @carteira.save
-        format.html { redirect_to carteira_url(@carteira), notice: "Carteira was successfully created." }
+        flash[:success] = "Carteira criada com sucesso!"
+        format.html { redirect_to carteiras_path }
         format.json { render :show, status: :created, location: @carteira }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +39,8 @@ class CarteirasController < ApplicationController
   def update
     respond_to do |format|
       if @carteira.update(carteira_params)
-        format.html { redirect_to carteira_url(@carteira), notice: "Carteira was successfully updated." }
+        flash[:success] = "Carteira atualizada com sucesso!"
+        format.html { redirect_to carteiras_path }
         format.json { render :show, status: :ok, location: @carteira }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -65,6 +67,6 @@ class CarteirasController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def carteira_params
-      params.fetch(:carteira, {})
+      params.fetch(:carteira, {}).permit(:id, :nome, :cor)
     end
 end

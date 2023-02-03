@@ -1,2 +1,6 @@
-<div id="<%= dom_id carteira %>">
-</div>
+<tr id="<%= dom_id carteira %>">
+    <td> <%= carteira.nome %> </td>
+    <td> <%= money carteira.saldo %> </td>
+    <td><div class="pb-4" style="background-color: <%= carteira.cor %>"> </div></td>
+    <td> <i class="bi bi-pencil"><%= link_to "Editar", edit_carteira_path(carteira.id) %> </i> </td>
+</tr>
