@@ -1,17 +1,41 @@
 <%= form_with(model: lancamento) do |form| %>
-  <% if lancamento.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(lancamento.errors.count, "error") %> prohibited this lancamento from being saved:</h2>
+  <div class="d-grid gap-3 w-50">
 
-      <ul>
-        <% lancamento.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <div class="form-floating">
+    <%= form.text_field :descricao, required: "required", placeholder: "", class: "form-control", autocomplete:"off" %>
+    <%= form.label :descricao, "Descrição" %>
+  </div>
+
+  <div class="form-floating">
+    <%= select_tag "lancamento[categoria_id]", options_from_collection_for_select(Categorium.all, "id", "nome"), class: "form-control", id: "lancamento_categoria_id", prompt:"-- Selecione" %>
+    <%= form.label "Categoria" %>
+  </div>
+  
+  <div class="form-floating">
+    <%= select_tag "lancamento[carteira_id]", options_from_collection_for_select(Carteira.all, "id", "nome"), class: "form-control", id: "lancamento_carteira_id", prompt:"-- Selecione" %>
+    <%= form.label "Carteira" %>
+  </div>
+  
+  <div class="form-floating">
+    <%= form.number_field :valor_previsto, min: "0.01", step: "0.01", class: "form-control" %>
+    <%= form.label "Valor previsto" %>
+  </div>
+  <div class="form-floating">
+    <%= form.date_field :data_prevista, class: "form-control" %>
+    <%= form.label "Data prevista" %>
+  </div>
+
+  <div class="form-floating">
+    <%= form.number_field :valor_efetivo, min: "0.01", step: "0.01", class: "form-control" %>
+    <%= form.label "Valor efetivo" %>
+  </div>
+  <div class="form-floating">
+    <%= form.date_field :data_efetiva, class: "form-control" %>
+    <%= form.label "Data efetiva" %>
+  </div>
 
   <div>
-    <%= form.submit %>
+    <%= form.submit "Gravar", class: "btn btn-primary" %>
+    <%= link_to "Voltar", lancamentos_path, class:"btn btn-outline-secondary" %>
   </div>
 <% end %>

@@ -30,6 +30,7 @@ class LancamentosController < ApplicationController
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @lancamento.errors, status: :unprocessable_entity }
+        flash[:error] = validation_errors @lancamento.errors
       end
     end
   end
@@ -65,6 +66,6 @@ class LancamentosController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def lancamento_params
-      params.fetch(:lancamento, {})
+      params.fetch(:lancamento, {}).permit(Lancamento.column_names - ["created_at", "updated_at"])
     end
 end

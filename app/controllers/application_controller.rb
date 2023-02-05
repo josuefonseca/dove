@@ -10,4 +10,12 @@ class ApplicationController < ActionController::Base
             end
         end
     end
+
+    def validation_errors(errors)
+        ret = ""
+        errors.each do |error| 
+            ret += error.full_message
+        end
+        return ret
+    end
 end

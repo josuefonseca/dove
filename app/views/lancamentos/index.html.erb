@@ -7,6 +7,14 @@
     <%= render lancamento %>
     <p>
       <%= link_to "Show this lancamento", lancamento %>
+      <%= lancamento.descricao %>,
+      <%= lancamento.valor_previsto %>,
+      <%= lancamento.data_prevista %>,
+      <%= lancamento.valor_efetivo %>,
+      <%= lancamento.data_prevista %>,
+      <%= lancamento.categoria_id %>,
+      <%= lancamento.carteira_id %>
+
     </p>
   <% end %>
 </div>
