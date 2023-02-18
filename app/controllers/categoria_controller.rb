@@ -3,7 +3,7 @@ class CategoriaController < ApplicationController
 
   # GET /categoria or /categoria.json
   def index
-    @categoria = Categorium.all.order(:nome)
+    @categoria = Categorium.all.order(:tipo, :nome)
   end
 
   # GET /categoria/1 or /categoria/1.json
@@ -57,6 +57,6 @@ class CategoriaController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def categorium_params
-      params.fetch(:categorium, {}).permit(:id, :nome, :cor)
+      params.fetch(:categorium, {}).permit(:id, :nome, :cor, :tipo)
     end
 end

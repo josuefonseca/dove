@@ -9,11 +9,12 @@
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag "shared/nav", preload: true %>
 
+    <%= javascript_importmap_tags %>
+    
     <% if Rails.application.assets.find_asset(controller_name + "/" + action_name) %>
       <%= stylesheet_link_tag  controller_name + "/" + action_name, "data-turbo-track": "reload" %>
     <% end %>
 
-    <%= javascript_importmap_tags %>
     
     <%= yield(:head) %>
   </head>

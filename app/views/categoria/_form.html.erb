@@ -5,6 +5,15 @@
     <%= form.label :nome, "Nome" %>
   </div>
 
+  <div class="btn-group btn-group-toggle" data-toggle="buttons">
+    <label class="btn btn-outline-success">
+      <input type="radio" name="categorium[tipo]" id="categorium_tipo_e" autocomplete="off" value="E" <%= categorium.tipo == 'E' ? 'checked' : '' %>> Entrada
+    </label>
+    <label class="btn btn-outline-danger">
+      <input type="radio" name="categorium[tipo]" id="categorium_tipo_s" autocomplete="off" value="S" <%= categorium.tipo == 'S' ? 'checked' : '' %>> Saída
+    </label>
+  </div>
+
   <% if categorium.id%>
   <div class="form-floating">
     <input type="color" class="form-control" disabled="disabled" value="<%= categorium.cor %>" required="required" placeholder=""  />
@@ -16,18 +25,6 @@
     <%= form.label :cor, (categorium.id ? "Nova cor" : "Cor") %>
   </div>
 
-  <% if categorium.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(categorium.errors.count, "error") %> Erro(s) ao salvar a categoria:</h2>
-
-      <ul>
-        <% categorium.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-  <div>
   <div>
     <%= form.submit "Gravar", class: "btn btn-primary" %>
     <%= link_to "Voltar", categoria_path, class:"btn btn-outline-secondary" %>
