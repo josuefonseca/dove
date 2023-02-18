@@ -25,7 +25,8 @@ class LancamentosController < ApplicationController
 
     respond_to do |format|
       if @lancamento.save
-        format.html { redirect_to lancamento_url(@lancamento), notice: "Lancamento was successfully created." }
+        flash[:success] = "Lançamento gravado com sucesso!"
+        format.html { redirect_to lancamentos_path }
         format.json { render :show, status: :created, location: @lancamento }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -39,11 +40,13 @@ class LancamentosController < ApplicationController
   def update
     respond_to do |format|
       if @lancamento.update(lancamento_params)
-        format.html { redirect_to lancamento_url(@lancamento), notice: "Lancamento was successfully updated." }
+        flash[:success] = "Lançamento gravado com sucesso!"
+        format.html { redirect_to lancamentos_path }
         format.json { render :show, status: :ok, location: @lancamento }
       else
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @lancamento.errors, status: :unprocessable_entity }
+        flash[:error] = validation_errors @lancamento.errors
       end
     end
   end

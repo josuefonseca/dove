@@ -16,26 +16,26 @@
         <%= link_to "Início", home_path, class: "nav-link me-2" %>
     <% end %>
 
-
-    <% if current_page?(lancamentos_path) || current_page?(lancamentos_path)%>
+    
+    <% if controller_name == 'lancamentos' %>
         <%= link_to "Lançamentos", lancamentos_path, class: "nav-link active me-2" %>
     <% else %>
         <%= link_to "Lançamentos", lancamentos_path, class: "nav-link me-2" %>
     <% end %>
     
-    <% if current_page?(categoria_path) || current_page?(categoria_path)%>
+    <% if controller_name == 'categoria' %>
         <%= link_to "Categorias", categoria_path, class: "nav-link active me-2" %>
     <% else %>
         <%= link_to "Categorias", categoria_path, class: "nav-link me-2" %>
     <% end %>
 
-    <% if current_page?(carteiras_path) || current_page?(carteiras_path)%>
+    <% if controller_name == 'carteiras' %>
         <%= link_to "Carteiras", carteiras_path, class: "nav-link active me-2" %>
     <% else %>
         <%= link_to "Carteiras", carteiras_path, class: "nav-link me-2" %>
     <% end %>
 
-    <% if current_page?(linha_creditos_path) || current_page?(linha_creditos_path)%>
+  <% if controller_name == 'linha_creditos' %>
         <%= link_to "Linhas de Crédito", linha_creditos_path, class: "nav-link active me-2" %>
     <% else %>
         <%= link_to "Linhas de Crédito", linha_creditos_path, class: "nav-link me-2" %>

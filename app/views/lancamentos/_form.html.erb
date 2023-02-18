@@ -7,12 +7,12 @@
   </div>
 
   <div class="form-floating">
-    <%= select_tag "lancamento[categoria_id]", options_from_collection_for_select(Categorium.all, "id", "nome"), class: "form-control", id: "lancamento_categoria_id", prompt:"-- Selecione" %>
+    <%= select_tag "lancamento[categoria_id]", options_from_collection_for_select(Categorium.all, "id", "nome", lancamento.categoria_id), class: "form-control", id: "lancamento_categoria_id", prompt:"-- Selecione"%>
     <%= form.label "Categoria" %>
   </div>
   
   <div class="form-floating">
-    <%= select_tag "lancamento[carteira_id]", options_from_collection_for_select(Carteira.all, "id", "nome"), class: "form-control", id: "lancamento_carteira_id", prompt:"-- Selecione" %>
+    <%= select_tag "lancamento[carteira_id]", options_from_collection_for_select(Carteira.all, "id", "nome", lancamento.carteira_id), class: "form-control", id: "lancamento_carteira_id", prompt:"-- Selecione"%>
     <%= form.label "Carteira" %>
   </div>
   
